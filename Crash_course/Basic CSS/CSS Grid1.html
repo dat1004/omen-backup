@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grids</title>
+
+    <style>
+      .wrapper {
+        display: grid;
+        grid-template-columns: 70% 30%;
+        /* grid-column-gap: 1em;
+        grid-row-gap: 1em; */
+        grid-gap: 1em;
+      }
+
+      .wrapper > div {
+        background: #eee;
+        padding: 1em;
+      }
+
+      .wrapper > div:nth-child(odd) {
+        background: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur id
+        quibusdam odio iste porro voluptate culpa nesciunt laborum, ad ducimus
+        cumque fugit numquam veritatis dolores debitis corrupti? Corporis
+        deserunt saepe veniam quae laboriosam sit repudiandae consequatur, iste
+        ipsum accusantium ratione sed aperiam earum quo soluta! Cupiditate autem
+        deleniti ex perspiciatis, voluptatum odit. Provident perspiciatis dolore
+        rerum blanditiis expedita assumenda ipsum consequuntur ea. Delectus
+        ratione excepturi consequuntur, rem quo voluptas? Blanditiis fugiat
+        consequatur tenetur id beatae veritatis, nulla officiis nisi dolores.
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
+        temporibus non fugiat adipisci, perspiciatis placeat cum, provident quia
+        numquam corrupti incidunt alias sed quidem magni iusto, eligendi culpa
+        cupiditate aperiam?
+      </div>
+      <div>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur id
+        quibusdam odio iste porro voluptate culpa nesciunt laborum, ad ducimus
+        cumque fugit numquam veritatis dolores debitis corrupti? Corporis
+        deserunt saepe veniam quae laboriosam sit repudiandae consequatur, iste
+        ipsum accusantium ratione sed aperiam earum quo soluta! Cupiditate autem
+        deleniti ex perspiciatis, voluptatum odit. Provident perspiciatis dolore
+        rerum blanditiis expedita assumenda ipsum consequuntur ea. Delectus
+        ratione excepturi consequuntur, rem quo voluptas? Blanditiis fugiat
+        consequatur tenetur id beatae veritatis, nulla officiis nisi dolores.
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
+        temporibus non fugiat adipisci, perspiciatis placeat cum, provident quia
+        numquam corrupti incidunt alias sed quidem magni iusto, eligendi culpa
+        cupiditate aperiam?
+      </div>
+    </div>
+  </body>
+</html>
