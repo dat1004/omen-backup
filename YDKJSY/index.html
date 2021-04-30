@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>You dont know JS yet</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>You don't know JS yet</h1>
+    <div class="container">
+      <h3>Declaring & Using Variables</h3>
+      <ul>
+        <li>'var' --> declares regular/function scope variables</li>
+        <li>'let' --> declares block scope function {}</li>
+        <li>
+          'const' --> is like 'let' but must be given a value when declaring &
+          cannot be reassign
+        </li>
+        <li>
+          avoid using 'const' with object value, since those can still be
+          changed eventhough the variable cannot be "re-assigned"
+        </li>
+        <li>
+          'const' decalred variables are not "unchangeble", they just cannot be
+          "re-assign"
+        </li>
+        <li>
+          'const often used to assign useful name to a simple primative value
+        </li>
+      </ul>
+
+      <h3>Other syntactic forms that declare identifiers (variables)</h3>
+      <ul>
+        <li>
+          'function' --> hello is created in outer scope and references the
+          function
+        </li>
+        <li>
+          'function' --> myName is created inside function's scope and thus only
+          accessible there
+        </li>
+        <li>
+          'catch' --> err is block-scoped variable exist only inside 'catch'
+          clause
+        </li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <h3>Functions</h3>
+      <ul>
+        <li>
+          function delcaration --> the association between the identifider and
+          fuction value happens during comile phase
+        </li>
+        <li>
+          function expression --> not associated with its identifider until that
+          statement during runtime
+        </li>
+        <li>
+          JS treats 'function' as value that can be assigned & passed around
+        </li>
+        <li>
+          functions can receive parameter(variable identifier), which acts as
+          local variable inside function
+        </li>
+        <li>
+          each parameter is assigned the argument value(variable value) that you
+          pass in that position of the call
+        </li>
+        <li>to return more value, can be wrapped into single object/array</li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <h3>Comparisons</h3>
+      <ul>
+        <li>
+          Equaliy (===) check both the value and the type for primitive data -->
+          structural comparison
+        </li>
+        <li>(===) use identity quality for object values</li>
+        <li>
+          assignment is by reference-copy --> y references the same array as x
+          not another copy of it
+        </li>
+        <li>
+          Coercive (==) a value of one type is converted to its respective
+          representation in other
+        </li>
+      </ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
