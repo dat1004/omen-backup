@@ -82,3 +82,32 @@ console.log(y === x);
 console.log(y === [1, 2, 3]);
 console.log(x === [1, 2, 3]);
 // assignment is by reference-copy --> y references the same array as x not another copy of it
+
+class Page {
+  constructor(text) {
+    this.text = text;
+  }
+  print() {
+    console.log(this.text);
+  }
+}
+
+class Notebook {
+  constructor() {
+    this.page = [];
+  }
+  addPage(text) {
+    var page = new Page(text);
+    this.pages.push(page);
+  }
+  print() {
+    for (let page of this.page) {
+      page.print();
+    }
+  }
+}
+
+var mathNotes = new Notebook();
+mathNotes.addPage("Arithmeti: + - * / ...");
+mathNotes.addPage("Trigonometry: sin cos tan ...");
+mathNotes.print();
