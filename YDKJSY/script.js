@@ -83,10 +83,13 @@ console.log(y === [1, 2, 3]);
 console.log(x === [1, 2, 3]);
 // assignment is by reference-copy --> y references the same array as x not another copy of it
 
+//CLASSES
 class Page {
   constructor(text) {
+    //data is a string stored in this.text
     this.text = text;
   }
+  //behavior is print
   print() {
     console.log(this.text);
   }
@@ -94,8 +97,10 @@ class Page {
 
 class Notebook {
   constructor() {
+    //data is an array of pages
     this.page = [];
   }
+  //behavior is addpage & print
   addPage(text) {
     var page = new Page(text);
     this.pages.push(page);
@@ -107,7 +112,71 @@ class Notebook {
   }
 }
 
+//instantiates new Notebook & add text to pages\
+//behavior(method) can only be called on instances, not class itself
 var mathNotes = new Notebook();
-mathNotes.addPage("Arithmeti: + - * / ...");
+mathNotes.addPage("Arithmetic: + - * / ...");
 mathNotes.addPage("Trigonometry: sin cos tan ...");
 mathNotes.print();
+
+class Publication {
+  constructor(title, author, pubDate) {
+    this.title = title;
+    this.author = author;
+    this.pubDate = pubDate;
+  }
+  print() {
+    console.log(`
+      Title: ${this.title}
+      By: ${this.author}
+      ${this.pubDate}
+      `);
+  }
+}
+
+//extends the general def of Publication to include additional behavior
+class Book extends Publication {
+  constructor(bookDetails) {
+    //super call in each constructor delegates to the parent publication class's constructor for iuts initialization work
+    super(bookDetails.title, bookDetails.author, bookDetails.publishedOn);
+    this.publisher = bookDetails.publisher;
+    this.ISBN = bookDetails.ISBN;
+  }
+  print() {
+    super.print();
+    console.log(`
+    Publisher: ${this.publisher}
+    ISBN: ${this.ISBN}
+    `);
+  }
+}
+
+class BlogPost extends Publication {
+  constructor(title, author, pubDate, URL) {
+    super(title, author, pubDate);
+    this.URL = URL;
+  }
+  print() {
+    super.print();
+    console.log(this.URL);
+  }
+}
+
+var YDKJS = new Book({
+  title: "You don't know JS",
+  author: "Kyle Simpson",
+  publishedOn: "June 2014",
+  publisher: "O 'Reilly",
+  ISBN: "123456-789",
+});
+
+YDKJS.print();
+
+var forAgaisntLet = new BlogPost(
+  "for and against let",
+  "Kyle Simpson",
+  "October 27, 2014",
+  "https://davidwalsh.name/for-and-against-let"
+);
+
+forAgainstLet.print();
