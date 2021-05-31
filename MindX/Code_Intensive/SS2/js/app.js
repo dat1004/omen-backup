@@ -68,6 +68,7 @@ class Boy extends Person {
   }
 }
 
+//Tinh ke thua
 let badBoi = new Boy("Badboi", 20, "Being Bad", 11);
 console.log(badBoi);
 badBoi.play("Far Cry");
