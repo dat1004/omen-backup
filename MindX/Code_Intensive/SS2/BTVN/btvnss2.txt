@@ -1,0 +1,39 @@
+Bài tập về nhà (Deadline 13h 04/06/2021)
+Bài 1 (4đ): Hãy viết chương trình "Quản lý các Memes" bằng cách cài đặt các class sau
+- Meme:
++ id
++ name
++ image: url ảnh của meme
++ dateModified: ngày tạo
++ show(): hiển thị ra màn hình dạng html của meme đó bao gồm: name, image, dateModified
++ update(data): thay đổi thông tin của meme với data là 1 object truyền vào
+VD: meme.update({name: 'Nà Ní', image: 'image url here'})
+- MemeCollection:
++ id
++ name
++ owner: tên của người tạo
++ memes: mảng gồm các meme
++ add(meme): thêm 1 meme, tham số meme chỉ được phép nhận instance của Meme
++ update(id, data): thay đổi thông tin của meme có id tương ứng
++ delete(id): xóa 1 meme có id tương ứng
++ show(): show ra màn hình console các thông tin của meme đó collection
+Bài 2 (4.5đ): Để tiện quản lý hàng hóa, shop A thuê bạn viết 1 chương trình để "quản lý hàng hóa" với các chức năng sau:
+- Thêm hàng: thêm 1 mặt hàng vào kho lưu trữ
+- Bán hàng: bán hàng theo định danh của hàng hóa đó và xóa mặt hàng đó khỏi kho lưu trữ (bán được cái nào nhớ ghi lại để tí nữa tính doanh thu 😃)
+- Kiểm tra doanh thu: in ra màn hình tổng số tiền hàng đã bán được
+Biết rằng, hàng hóa bao gồm những thông tin cơ bản sau:
+định danh,
+tên mặt hàng,
+giá thành,
+nhà sản xuất,
+giảm giá (tính theo %)
+ngày nhập
+Giả sử có 3 loại mặt hàng chủ yếu:
+Đồ gia dụng: có thêm thuộc tính: độ bền, giảm giá = 10%
+Quần áo: có thêm thuộc tính: xuất xứ, chất liệu, giảm giá = 5%
+Đồ ăn: có thêm thuộc tính: vị (vd: ngọt, chua, ...), giảm giá = 2%
+Đối với bài 1 + 2: nên sử dụng module, mỗi module chứa duy nhất 1 class
+Bài 3 (1.5đ): Tìm hiểu về WebComponent:
+Khái niệm?
+Vì sao cần dùng?
+Công nghệ sử dụng trong WebComponent?

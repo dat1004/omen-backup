@@ -84,7 +84,7 @@ class BadBoy extends Boy {
 class GoodGirl extends Girl {
   timeAtHome;
   constructor(name, age, favorites, beauty, boyFriend, timeAtHome) {
-    super(name, age, favorites, handsome, boyFriend);
+    super(name, age, favorites, beauty, boyFriend);
     this.timeAtHome = timeAtHome;
   }
 }
@@ -100,6 +100,8 @@ class PlayGirl extends Girl {
 let gb1 = new GoodBoy("Goodboi 1", 20, ["em an com chua"], 10, null, 11);
 let pg1 = new PlayGirl("Play Gon", 21, ["choi qua 180p"], 8, null, "pubg");
 
+// gb1.girlFriend = pg1;
+gb1.setGirlFriend("mahbabe");
 gb1.setGirlFriend(pg1);
 pg1.setBoyFriend(gb1);
 
