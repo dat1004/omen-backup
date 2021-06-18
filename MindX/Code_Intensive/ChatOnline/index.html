@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Online</title>
+    <link rel="stylesheet" href="./css/app.css" />
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAObx8gBH6zskQ3W0pNxpfFNTdaD6CNSX0",
+        authDomain: "cj61---ss5.firebaseapp.com",
+        projectId: "cj61---ss5",
+        storageBucket: "cj61---ss5.appspot.com",
+        messagingSenderId: "1063833935992",
+        appId: "1:1063833935992:web:cb847f32eaa37a036d8d8d",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="//unpkg.com/navigo@6"></script>
+  </head>
+  <body>
+    <div id="app">
+      <auth-screen></auth-screen>
+      <!-- <register-form></register-form>
+      <login-form></login-form> -->
+    </div>
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>
