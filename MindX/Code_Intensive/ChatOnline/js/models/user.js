@@ -1,3 +1,5 @@
+import { getDataFromDocs } from "../utils.js";
+
 export async function register(name, email, password) {
   await firebase.auth().createUserWithEmailAndPassword(email, password); //kha nang gap loi: email trung
   await firebase.auth().currentUser.updateProfile({
@@ -31,4 +33,35 @@ export function authStateChanged(callback) {
   firebase.auth().onAuthStateChanged((user) => {
     callback(user);
   });
+}
+
+export async function getAllUsers() {
+  let response = await firebase.firestore().collection("users").get();
+  let data = getDataFromDocs(response.docs);
+  return data;
+  // console.log(response);
+  // for (let doc of response.docs) {
+  //   let obj = doc.data();
+  //   obj.id = doc.id;
+
+  //   console.log(doc.id, doc.data());
+  // }
+}
+
+export function listenAllUsers(callback) {
+  firebase
+    .firestore()
+    .collection("users")
+    .onSnapshot((response) => {
+      callback(getDataFromDocs(response.docs));
+    });
+}
+
+export async function updateUser(id, data) {
+  await firebase.firestore().collection("users").doc(id).update(data);
+}
+
+export async function updateCurrentUser(data) {
+  let currentUser = firebase.auth().currentUser;
+  await updateUser(currentUser.uid, data);
 }
