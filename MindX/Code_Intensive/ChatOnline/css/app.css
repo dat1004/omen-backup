@@ -5,6 +5,8 @@
 @import url("./app-stat.css");
 @import url("./user-actions.css");
 
+@import url("./message-container.css");
+
 @import url("./auth-screen.css");
 
 * {

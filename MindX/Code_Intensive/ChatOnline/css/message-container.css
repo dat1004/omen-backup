@@ -1,0 +1,16 @@
+.message-container .message-content {
+  padding: 10px;
+  background-color: #4a8af4;
+  color: #fff;
+  margin-bottom: 3px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.message-container.text-right {
+  text-align: right;
+}
+
+.message-container.text-right .message-content {
+  background-color: #1aa15f;
+}
