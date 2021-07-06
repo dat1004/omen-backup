@@ -1,3 +1,5 @@
+import MessageContainer from "./MessageContainer.js";
+
 const $template = document.createElement("template");
 $template.innerHTML = `
     <div class="message-list">
@@ -12,6 +14,8 @@ export default class MessageList extends HTMLElement {
   constructor() {
     super();
     this.appendChild($template.content.cloneNode(true));
+
+    this.$list = this.querySelector(".message-list");
   }
 
   static get observedAttributes() {
@@ -19,9 +23,21 @@ export default class MessageList extends HTMLElement {
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
+    let currentUser = firebase.auth().currentUser;
     if (attrName == "messages") {
       let data = JSON.parse(newValue);
-      console.log(data);
+      // console.log(data);
+      this.$list.innerHTML = "";
+      for (let message of data) {
+        let $messageContainer = new MessageContainer();
+        $messageContainer.setAttribute("content", message.content);
+        $messageContainer.setAttribute(
+          "owned",
+          message.userId == currentUser.uid
+        );
+
+        this.$list.appendChild($messageContainer);
+      }
     }
   }
 }

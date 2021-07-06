@@ -1,4 +1,6 @@
 import { listenCurrentUser } from "../models/user.js";
+import { getConversationById } from "../models/conversation.js ";
+import { listenConversation } from "../models/conversation.js";
 
 const $template = document.createElement("template");
 $template.innerHTML = `
@@ -10,16 +12,14 @@ $template.innerHTML = `
 
         <div class="chat-container">
           <message-list></message-list>
+          <send-message-form></send-message-form>
         </div>
     </div>
 `;
 
-//fake message
+// fake message
 let messages = [
-  { content: "hello", owned: true },
-  { content: "hi", owned: false },
-  { content: "what's your name?", owned: true },
-  { content: "my name is Jeff", owned: false },
+  { content: "No conversation, flirt or bite to connect", owned: true },
 ];
 
 export default class ChatScreen extends HTMLElement {
@@ -29,19 +29,37 @@ export default class ChatScreen extends HTMLElement {
 
     this.$userActions = this.querySelector("user-actions");
     this.$messageList = this.querySelector("message-list");
+    this.$sendMessageForm = this.querySelector("send-message-form");
   }
 
   connectedCallback() {
-    listenCurrentUser((user) => {
+    listenCurrentUser(async (user) => {
       console.log(user);
       this.$userActions.setAttribute("status", user.status);
       this.$userActions.setAttribute(
         "conversation-id",
         user.currentConversation
       );
-    });
 
-    this.$messageList.setAttribute("messages", JSON.stringify(messages));
+      this.$sendMessageForm.setAttribute(
+        "converstation-id",
+        user.currentConversation
+      );
+
+      if (user.currentConversation) {
+        listenConversation(user.currentConversation, (conversation) => {
+          // Lay message tu conv
+          let messages = conversation.messages;
+          //do du lieu message vao message-list
+          this.$messageList.setAttribute("messages", JSON.stringify(messages));
+        });
+        // // lay conv hien tai
+        // let conversation = await getConversationById(user.currentConversation);
+      } else {
+        this.$messageList.setAttribute("messages", JSON.stringify(messages));
+      }
+    });
+    //this.$messageList.setAttribute("messages", JSON.stringify(messages));
   }
 }
 

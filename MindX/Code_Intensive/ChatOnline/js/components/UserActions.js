@@ -82,7 +82,7 @@ export default class UserActions extends HTMLElement {
       let randomIndex = Math.floor(Math.random() * flirtingUsers.length);
       let randomUser = flirtingUsers[randomIndex];
 
-      this.saveRandomUser(randomUser.id);
+      // this.saveRandomUser(randomUser.id);
 
       let currentUser = firebase.auth().currentUser;
       // ghép đôi

@@ -1,0 +1,19 @@
+.send-message-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.send-message-form .message-content {
+  width: calc(100% - 70px - 10px);
+  height: 36px;
+}
+
+.send-message-form button {
+  width: 100px;
+  height: 40px;
+  background-color: #4b8bf4;
+  color: #fff;
+  border: 1px solid #4b8bf4;
+  border-radius: 10px;
+  margin: 0 10px 0 10px;
+}

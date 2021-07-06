@@ -16,3 +16,29 @@ export async function getConversationById(id) {
     .get();
   return getDataFromDoc(response);
 }
+
+export function listenConversation(id, callback) {
+  firebase
+    .firestore()
+    .collection("conversations")
+    .doc(id)
+    .onSnapshot((response) => {
+      callback(getDataFromDoc(response));
+    });
+}
+
+export async function addMessage(id, messageContent) {
+  let currentUser = firebase.auth().currentUser;
+  let messages = {
+    content: messageContent,
+    userId: currentUser.uid,
+    dateModified: new Date().toISOString(),
+  };
+  await firebase
+    .firestore()
+    .collection("conversations")
+    .doc(id)
+    .update({
+      messages: firebase.firestore.FieldValue.arrayUnion(messages),
+    });
+}
